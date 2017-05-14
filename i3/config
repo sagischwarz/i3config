@@ -185,7 +185,6 @@ hide_edge_borders smart
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id owncloud
-exec --no-startup-id "synclient MaxTapTime=0" # disable tap to click
 
 # Colors
 # class                 border  backgr. text    indicator child_border
@@ -205,3 +204,10 @@ force_display_urgency_hint 2000 ms
 
 # Set wallpaper
 exec --no-startup-id nitrogen --restore
+
+# Disable blank screen
+exec --no-startup-id xset s off
+
+# Configure touchpad
+exec --no-startup-id synclient MaxTapTime=0
+exec --no-startup-id synclient HorizTwoFingerScroll=0
