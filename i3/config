@@ -5,6 +5,7 @@
 set $mod Mod1
 set $sup Mod4
 set $scripts ~/.local/bin
+set $terminal gnome-terminal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -14,7 +15,8 @@ font pango:Sans 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec $terminal
+bindsym $mod+Shift+Return exec --no-startup-id $terminal -e ranger --hide-menubar
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -25,6 +27,7 @@ bindsym $mod+F2 exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $sup+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -211,3 +214,6 @@ exec --no-startup-id xset s off
 # Configure touchpad
 exec --no-startup-id synclient MaxTapTime=0
 exec --no-startup-id synclient HorizTwoFingerScroll=0
+
+for_window [class="vlc" instance="vlc"] floating enable
+for_window [class="Thunar" instance="thunar"] floating enable
