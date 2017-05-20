@@ -76,7 +76,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -132,10 +132,11 @@ mode "$mode_system" {
 bindsym $mod+Home mode "$mode_system"
 
 # Switching between internal and external monitor
-set $mode_monitor Monitor (i) internal, (e) external, (c) clone, (a) all
+set $mode_monitor Monitor (i) internal, (e) external, (Shift+e) dock, (c) clone, (a) all
 mode "$mode_monitor" {
     bindsym i exec --no-startup-id $scripts/monitor.sh internal, mode "default"
     bindsym e exec --no-startup-id $scripts/monitor.sh external, mode "default"
+    bindsym Shift+e exec --no-startup-id $scripts/monitor.sh dock, mode "default"
     bindsym c exec --no-startup-id $scripts/monitor.sh clone, mode "default"
     bindsym a exec --no-startup-id $scripts/monitor.sh all, mode "default"
 
@@ -196,6 +197,7 @@ hide_edge_borders smart
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id owncloud
+exec --no-startup-id compton -b
 
 # Colors
 # class                 border  backgr. text    indicator child_border
@@ -223,8 +225,11 @@ exec --no-startup-id xset s off
 exec --no-startup-id synclient MaxTapTime=0
 exec --no-startup-id synclient HorizTwoFingerScroll=0
 
+# Special window properties
 for_window [class="vlc" instance="vlc"] floating enable
 for_window [class="Thunar" instance="thunar"] floating enable
+for_window [class="Thunderbird" instance="Msgcompose"] fullscreen enable
+for_window [class="Meld" instance="meld"] fullscreen enable
 
 # Multimedia keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
