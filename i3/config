@@ -225,6 +225,9 @@ exec --no-startup-id xset s off
 exec --no-startup-id synclient MaxTapTime=0
 exec --no-startup-id synclient HorizTwoFingerScroll=0
 
+# Configure keyboard
+exec --no-startup-id setxkbmap -layout us -variant altgr-intl -option nodeadkeys ctrl:nocaps
+
 # Special window properties
 for_window [class="vlc" instance="vlc"] floating enable
 for_window [class="Thunar" instance="thunar"] floating enable
@@ -238,3 +241,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# Screenhot
+ bindsym Print exec gnome-screenshot -i
