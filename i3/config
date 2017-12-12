@@ -197,8 +197,6 @@ hide_edge_borders smart
 # Startup
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id owncloud
-exec --no-startup-id compton -b
 
 # Colors
 # class                 border  backgr. text    indicator child_border
@@ -245,3 +243,6 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenhot
  bindsym Print exec gnome-screenshot -i
+
+# Keepass auto type
+bindsym $mod+Control+Shift+a exec --no-startup-id keepass --auto-type
