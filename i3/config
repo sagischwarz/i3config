@@ -179,17 +179,17 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-		position top
-		colors {
-        	background #444444
-        	statusline #dddddd
-        	separator #dddddd
+        position top
+        colors {
+            background #282C34
+            statusline #ABB2BF
+            separator #ABB2BF
 
-        	focused_workspace  #dddddd #3BBA4B #dddddd
-        	active_workspace   #dddddd #3BBA4B #dddddd
-        	inactive_workspace #333333 #222222 #888888
-        	urgent_workspace   #dddddd #f0544c #dddddd
-	    }
+            focused_workspace  #ABB2BF #98C379 #5C6370
+            active_workspace   #ABB2BF #98C379 #5C6370
+            inactive_workspace #5C6370 #282c34 #5C6370
+            urgent_workspace   #ABB2BF #BE5046 #ABB2BF
+        }
         status_command i3status
         bindsym button4 nop
         bindsym button5 nop
@@ -207,13 +207,13 @@ exec --no-startup-id compton -b
 
 # Colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #444444 #444444 #ffffff #f0544c   #444444
-client.focused_inactive #333333 #333333 #ffffff #444444   #333333
-client.unfocused        #222222 #222222 #888888 #444444   #222222
-client.urgent           #f0544c #f0544c #ffffff #f0544c   #f0544c
-client.placeholder      #000000 #0c0c0c #ffffff #444444   #0c0c0c
+client.focused          #282C34 #282C34 #ABB2BF #BE5046   #282C34
+client.focused_inactive #2f343f #2f343f #ABB2BF #282C34   #2f343f
+client.unfocused        #2f343f #2f343f #ABB2BF #282C34   #2f343f
+client.urgent           #BE5046 #BE5046 #ABB2BF #BE5046   #BE5046
+client.placeholder      #000000 #0c0c0c #ABB2BF #282C34   #0c0c0c
 
-client.background       #444444
+client.background       #282C34
 
 # Mouse
 focus_follows_mouse no
