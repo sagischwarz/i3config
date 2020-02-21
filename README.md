@@ -3,7 +3,7 @@ Files for my i3 window manager configuration.
 
 ## Install packages
 
-    sudo apt install i3 dunst pasystray paman pavucontrol pavumeter paprefs ranger nitrogen compton
+    sudo pacman -S i3 dunst pasystray pavucontrol paprefs ranger nitrogen compton nemo rofi gnome-terminal tmux 
 
 ## Clone
 
@@ -38,9 +38,9 @@ Edit /etc/systemd/logind.conf
     HandleLidSwitch=ignore
     HandleLidSwitchDocked=ignore
 
-## Set a file manager as default for directories (e.g., Thunar)
+## Set a file manager as default for directories (e.g., Nemo)
 
-    xdg-mime default Thunar.desktop inode/directory
+    xdg-mime default Nemo.desktop inode/directory
 
 ## Fix mouse cursor size
 
