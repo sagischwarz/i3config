@@ -1,26 +1,16 @@
 #!/bin/sh
-EXTERNAL_OUTPUT="DP1"
-INTERNAL_OUTPUT="LVDS1"
-DOCK_OUTPUT="HDMI3"
+SCREEN_1="VGA-1"
+SCREEN_2="VGA-2"
 
 case "$1" in
-    dock)
-        xrandr --output $INTERNAL_OUTPUT --off --output $DOCK_OUTPUT --auto
+    single)
+        xrandr --output $SCREEN_1 --auto --output $SCREEN_2 --off
         ;;
-    external)
-        xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
-        ;;
-    internal)
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off
-        ;;
-    clone)
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
-        ;;
-    all)
-        xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --left-of $INTERNAL_OUTPUT
+    dual)
+        xrandr --output $SCREEN_1 --auto --output $SCREEN_2 --auto --right-of $SCREEN_1
         ;;
     *)
-        echo "Usage: $0 {internal|external|dock|clone|all}"
+        echo "Usage: $0 {single|dual}"
         exit 2
 esac
 

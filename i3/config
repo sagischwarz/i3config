@@ -139,13 +139,10 @@ mode "$mode_system" {
 bindsym $mod+Home mode "$mode_system"
 
 # Switching between internal and external monitor
-set $mode_monitor Monitor (i) internal, (e) external, (Shift+e) dock, (c) clone, (a) all
+set $mode_monitor Monitor (d) dual, (s) single
 mode "$mode_monitor" {
-    bindsym i exec --no-startup-id $scripts/monitor.sh internal, mode "default"
-    bindsym e exec --no-startup-id $scripts/monitor.sh external, mode "default"
-    bindsym Shift+e exec --no-startup-id $scripts/monitor.sh dock, mode "default"
-    bindsym c exec --no-startup-id $scripts/monitor.sh clone, mode "default"
-    bindsym a exec --no-startup-id $scripts/monitor.sh all, mode "default"
+    bindsym d exec --no-startup-id $scripts/monitor.sh dual, mode "default"
+    bindsym s exec --no-startup-id $scripts/monitor.sh single, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -204,8 +201,8 @@ hide_edge_borders smart
 # Startup
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id owncloud
-exec --no-startup-id compton -b
+exec --no-startup-id "xset s off"
+exec --no-startup-id "xset -dpms"
 
 # Colors
 # class                 border  backgr. text    indicator child_border
