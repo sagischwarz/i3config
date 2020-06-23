@@ -203,12 +203,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id "xset s off"
 exec --no-startup-id "xset -dpms"
+exec --no-startup-id nextcloud
 
 # Colors
 # class                 border  backgr. text    indicator child_border
 client.focused          #282a36 #282a36 #f8f8f2 #ff5555   #282a36
 client.focused_inactive #282a36 #282a36 #44475a #282a36   #282a36
-client.unfocused        #2c2e3a #2c2e3a #44475a #2c2e3a   #2c2e3a
+client.unfocused        #2c2e3a #2c2e3a #777a8d #2c2e3a   #2c2e3a
 #client.unfocused        #44475a #44475a #282a36 #282a36   #44475a
 client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555   #ff5555
 client.placeholder      #44475a #44475a #282a36 #282a36   #44475a
@@ -239,8 +240,8 @@ for_window [class="vlc" instance="vlc"] floating enable
 for_window [class="Nemo" instance="nemo"] floating enable
 for_window [class="Thunderbird" instance="Msgcompose"] fullscreen enable
 for_window [class="Meld" instance="meld"] fullscreen enable
-for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
-for_window [class="jetbrains-idea" instance="jetbrains-idea"] floating disable
+for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
+#for_window [class="jetbrains-idea" instance="jetbrains-idea"] floating disable
 
 # Multimedia keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -252,3 +253,4 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenhot
  bindsym Print exec flameshot gui
+bindsym $mod+Shift+g exec play ~/Music/honk-sound.mp3
